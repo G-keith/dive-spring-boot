@@ -1,0 +1,5 @@
+一、servlet
+1.创建Myservlet继承HttpServlet
+2.重写doGet...方法
+3.添加   @WebServlet(urlPatterns = "/my/servlet")   注解
+4.启动类添加映射      @ServletComponentScan(basePackages = "com.keith.divespringboot.web.servlet")
