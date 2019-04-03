@@ -21,7 +21,7 @@ public class MyServlet extends HttpServlet {
         asyncContext.start(()->{
             try {
                 resp.getWriter().println("HelloWorld");
-                //触发完成
+                //触发异步完成
                 asyncContext.complete();
             } catch (IOException e) {
                 e.printStackTrace();
