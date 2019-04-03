@@ -1,5 +1,6 @@
 package com.keith.divespringboot.web.servlet;
 
+import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +13,19 @@ import java.io.IOException;
  * @version 1.0
  * @date 2019-04-02
  */
-@WebServlet(urlPatterns = "/my/servlet")
+@WebServlet(urlPatterns = "/my/servlet",asyncSupported=true)
 public class MyServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.getWriter().println("HelloWorld");
+        AsyncContext asyncContext=req.startAsync();
+        asyncContext.start(()->{
+            try {
+                resp.getWriter().println("HelloWorld");
+                //触发完成
+                asyncContext.complete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
