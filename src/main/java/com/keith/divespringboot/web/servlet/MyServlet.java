@@ -16,6 +16,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/my/servlet",asyncSupported=true)
 public class MyServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException{
         AsyncContext asyncContext=req.startAsync();
         asyncContext.start(()->{
