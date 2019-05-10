@@ -20,7 +20,6 @@ public class OnSystemPropertyCondition implements Condition{
         String propertyValue=String.valueOf(attributes.get("value"));
 
         String javaPropertyValue=System.getProperty(propertyName);
-        System.out.println(propertyName);
         return propertyValue.equals(javaPropertyValue);
     }
 }
