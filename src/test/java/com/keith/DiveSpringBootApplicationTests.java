@@ -1,4 +1,4 @@
-package com.keith.divespringboot;
+package com.keith;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
